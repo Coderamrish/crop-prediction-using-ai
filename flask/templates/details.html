@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation - Predict</title>
+    <style>
+        /* General styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    margin: 0;
+    color: #27ae60;
+}
+
+.header nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.header nav a:hover {
+    color: #27ae60;
+}
+
+.form-container {
+    padding: 40px;
+    text-align: center;
+    background: url('/static/images/form-background.jpg') no-repeat center center/cover;
+    background-size: cover;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+.form-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+.form-container h2 {
+    color: #ffff;
+    margin-bottom: 20px;
+}
+
+.form-container form {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.form-container input,
+.form-container .btn {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #030303;
+    z-index: 2;
+}
+
+.form-container .btn {
+    font-size: 1em;
+    color: #fff;
+    background-color: #255ec1;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.form-container .btn:hover {
+    background-color: #219150;
+}
+
+/* Responsive design */
+@media (min-width: 768px) {
+    .form-container form {
+        max-width: 50%; /* Ensure form takes up half the page on tablets and desktops */
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Crop Recommendation</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/details">Details</a>
+            <a href="/crop_predict">Results</a>
+        </nav>
+    </header>
+    <section class="form-container">
+        <h2>Enter Details for Prediction</h2>
+        <form action="/crop_predict" method="post">
+            <input type="number" step="any" name="N" placeholder="N value" required>
+            <input type="number" step="any" name="P" placeholder="P value" required>
+            <input type="number" step="any" name="K" placeholder="K value" required>
+            <input type="number" step="any" name="temperature" placeholder="Temperature" required>
+            <input type="number" step="any" name="humidity" placeholder="Humidity" required>
+            <input type="number" step="any" name="ph" placeholder="pH value" required>
+            <input type="number" step="any" name="rainfall" placeholder="Rainfall" required>
+            <button type="submit" class="btn">Predict</button>
+        </form>
+    </section>
+</body>
+</html>

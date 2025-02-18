@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation - Results</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+            color: #333;
+            background: url('../static/images/result-background.jpg') no-repeat center center/cover;
+            background-size: cover;
+            background-attachment: fixed; /* Ensures background image stays fixed on scroll */
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 20px 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            margin: 0;
+            color: #27ae60;
+        }
+
+        .header nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .header nav a:hover {
+            color: #27ae60;
+        }
+
+        .result-container {
+            padding: 40px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.7); /* Add opacity to the result section */
+            backdrop-filter: blur(10px); /* Apply a blur effect to improve readability */
+            border-radius: 10px;
+            margin: 20px; /* Add some space around the container */
+        }
+
+        .result-container h2 {
+            color: #4d0707;
+            margin-bottom: 20px;
+        }
+
+        .result-container p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        .result-container .btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #255ec1;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .result-container .btn:hover {
+            background-color: #219150;
+        }
+
+        /* Highlight style */
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Crop Recommendation</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/details">Predict</a>
+            <a href="/crop_predict">Results</a>
+        </nav>
+    </header>
+    <section class="result-container">
+        {% if crop %}
+            <h2>Prediction Result</h2>
+            <p>The recommended crop for cultivation is: <span class="highlight">{{ crop }}</span></p>
+        {% else %}
+            <h2>Enter the details to see the results</h2>
+            <a href="/details" class="btn">Predict Now</a>
+        {% endif %}
+    </section>
+</body>
+</html>
